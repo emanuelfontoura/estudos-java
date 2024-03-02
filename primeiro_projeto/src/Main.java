@@ -7,6 +7,10 @@ public class Main {
 		char sexo = 'M';
 		
 		System.out.println("Meu nome é Emanuel, tenho " + idade + " anos, " + altura + " metros de altura e sou do sexo " + sexo + " (masculino).");
+		
+		System.out.printf("%.2f%n", altura);
+		
+		System.out.printf("Meu nome é Emanuel, tenho %d anos, %.2f metro (s) e sou do sexo %c (masculino)", idade, altura, sexo);
 	}
 
 }
