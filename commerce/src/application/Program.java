@@ -25,6 +25,8 @@ public class Program {
 		p1.RemoveProducts(sc.nextInt());
 		System.out.printf("Updated data - Name: %s, $ %.2f, %d units, Total: %.2f%n", p1.name, p1.price, p1.quantity, p1.TotalValueInStock());
 		sc.close();
+		
+		System.out.println(p1);
 	}
 
 }
