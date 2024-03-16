@@ -25,7 +25,7 @@ public class Program {
 			System.out.print("Id: ");
 			id = sc.nextInt();
 			System.out.print("Name: ");
-			String clearBuffer = sc.nextLine();
+			sc.nextLine();
 			name = sc.nextLine();
 			System.out.print("Salary: ");
 			salary = sc.nextDouble();
@@ -34,19 +34,30 @@ public class Program {
 		
 		System.out.print("Enter the employee Id that will have salary increase: ");
 		int idIncrease = sc.nextInt();
+//		
+//		Employee employeeIncrease = employees.stream().filter(e -> e.getId() == idIncrease).findFirst().orElse(null);
+//		
+//		if(employeeIncrease == null) {
+//			System.out.println("This id not exists!");
+//		}else {
+//			System.out.print("Enter the percentage: ");
+//			double percentageIncrease = sc.nextDouble();
+//			for(Employee employee : employees) {
+//				if(employee.getId() == idIncrease) {
+//					employee.increaseSalary(percentageIncrease);
+//				}
+//			}
+//		}
+//		
 		
-		Employee employeeIncrease = employees.stream().filter(e -> e.getId() == idIncrease).findFirst().orElse(null);
+		int indexOfEmployeeIncrease = hasId(employees, idIncrease);
 		
-		if(employeeIncrease == null) {
-			System.out.println("This id not exists!");
-		}else {
+		if(indexOfEmployeeIncrease != 0) {
 			System.out.print("Enter the percentage: ");
 			double percentageIncrease = sc.nextDouble();
-			for(Employee employee : employees) {
-				if(employee.getId() == idIncrease) {
-					employee.increaseSalary(percentageIncrease);
-				}
-			}
+			employees.get(indexOfEmployeeIncrease).increaseSalary(percentageIncrease);
+		}else {
+			System.out.println("This id not exists!");
 		}
 		
 		for(Employee employee : employees) {
@@ -54,6 +65,16 @@ public class Program {
 		}
 		
 		sc.close();
+	}
+	
+	public static Integer hasId(List<Employee> list, int id) {
+		int index = 0;
+		for(int c = 0; c < list.size(); c++) {
+			if(list.get(c).getId() == id) {
+				index = c;
+			}
+		}
+		return index;
 	}
 
 }
