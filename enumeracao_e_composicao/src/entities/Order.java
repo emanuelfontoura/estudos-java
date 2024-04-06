@@ -45,4 +45,8 @@ public class Order {
 	public int getId() {
 		return id;
 	}
+	
+	public String toString() {
+		return "Id: " + id + " | Preço: " + price + " | Data: " + date + " | Status: " + status;
+	}
 }
